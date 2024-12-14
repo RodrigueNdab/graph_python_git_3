@@ -1,0 +1,42 @@
+---
+title: "My First Quarto Document"
+author: "Rodrigue Ndabashinze"
+format: pdf
+---
+
+# level 1 Header
+
+This is text with *italics* and **bold**.
+
+You can define bulleted lists:
+
+- First element
+- Second element
+
+# level 2 Header
+
+# level 3 Header
+
+# Section 1
+
+
+Hello
+
+# Section 2
+
+World
+
+```{python}
+2 + 2
+```
+
+
+```{python}
+3*3
+67/45
+```
+
+
+
+
+

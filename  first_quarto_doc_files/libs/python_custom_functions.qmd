@@ -1,0 +1,132 @@
+# Imports
+
+
+```{python}
+import pandas as pd
+import numpy as np
+import vega_datasets as vd
+```
+
+#Basics of a function
+
+
+```{python}
+def pounds_to_kg(pounds):
+    return pounds * 0.4536
+```
+
+```{python}
+
+pounds_to_kg(150)
+
+```
+
+
+```{python}
+ pounds_to_kg(pounds = 150)
+
+```
+
+```{python}
+pounds_df = pd.DataFrame({'pounds': [150, 200, 250]})
+
+pounds_df
+```
+
+
+```{python}
+pounds_df['kg'] = pounds_to_kg(pounds_df['pounds'])
+pounds_df
+```
+
+
+# Practice 
+
+```{python}
+# Define the function to convert years to months
+def years_to_months(age):
+    return age * 12
+
+# Load the data for riots
+riots_df = vd.data.la_riots()
+
+# Apply the function to convert 'age' from years to months
+riots_df['age'] = years_to_months(riots_df['age'])
+
+# Display the dataframe
+riots_df
+
+
+```
+
+# functions with multiple arguments 
+
+
+```{python}
+def calc_calories(carb_grams, protein_grams, fat_grams):
+    result = (carb_grams * 4) + (protein_grams * 4) + (fat_grams * 9)
+    return result
+
+```
+
+
+```{python}
+calc_calories(carb_grams=50, protein_grams=25, fat_grams=15)
+```
+
+
+```{python}
+# calc_calories(carb_grams=50, protein_grams=25) does not work due to missing  arguments 
+
+```
+
+```{python}
+# default arguments
+def calc_calories2(carb_grams=0, protein_grams=0, fat_grams=0):
+    result = (carb_grams * 4) + (protein_grams * 4) + (fat_grams * 9)
+    return result
+```
+
+
+```{python}
+calc_calories2(carb_grams=50)
+```
+
+
+```{python}
+food_df = pd.DataFrame({
+    'food': ['Apple', 'Avocado'],
+    'carb': [25, 10],
+    'protein': [0, 1],
+    'fat': [0, 14]
+})
+food_df
+```
+
+
+```{python}
+ calc_calories2(carb_grams = food_df['carb'])
+food_df
+```
+
+```{python}
+food_df['calories'] = calc_calories2(food_df['carb'], food_df['protein'], food_df['fat'])
+food_df
+```
+
+# practice
+
+
+```{python}
+
+def calc_bmi(weight, height):
+    return weight / (height ** 2)
+
+bmi_df = pd.DataFrame({
+    'Weight': [70, 80, 100],  # in kg
+    'Height': [1.7, 1.8, 1.2]  # in meters
+})
+bmi_df['BMI'] = calc_bmi(bmi_df['Weight'], bmi_df['Height'])
+bmi_df
+```
+
